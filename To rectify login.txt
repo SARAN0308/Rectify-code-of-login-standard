@@ -1,0 +1,23 @@
+package Acceptance;
+
+public class Login {
+    public static String applicationURL = "https://www.facebook.com/";
+    public static String applicationEmail = "s.saran0308@gmail.com";
+    public static String applicationPassword = "Saran@0308";
+    public static String actualUrl="https://www.facebook.com/";
+
+    public static void main(String args[]) {
+
+        userAction action = new userAction();
+
+        action.loadURL(applicationURL);
+        action.expectedTitle(actualUrl);
+        action.enterText(VerifySteps.getEmail(), applicationEmail);
+        action.enterText(VerifySteps.getPassword(), applicationPassword);
+        action.click(VerifySteps.getLoginButton());
+        action .tearDown();
+
+
+
+    }
+}

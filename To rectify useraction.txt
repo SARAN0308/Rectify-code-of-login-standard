@@ -1,0 +1,39 @@
+package Acceptance;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class userAction {
+    public static WebDriver driver;
+
+    userAction(){
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+
+    public void expectedTitle(String Title){
+        String url=driver.getCurrentUrl();
+
+    }
+
+    public void enterText(WebElement element, String textToEnter){
+        element.click();
+        element.sendKeys(textToEnter);
+    }
+
+   public  void click(WebElement element){
+
+        element.click();
+    }
+
+    public  void loadURL(String URL) {
+
+        driver.get(URL);
+    }
+    public void tearDown() {
+
+        driver.quit();
+    }
+}

@@ -1,0 +1,46 @@
+package Acceptance;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import static Acceptance.userAction.driver;
+
+public class VerifySteps {
+    static By eMail    =By.xpath("//input[@aria-label='Email address or phone number']");
+    static By password=By.xpath("//input[@id=\"pass\"]");
+    static By loginButton= By.xpath("//button[@type=\"submit\"]");
+
+
+  public void checkTitle(){
+      System.out.println(driver.getCurrentUrl());
+       if(driver.getCurrentUrl().equals()){
+           System.out.println("url is verified "+driver.getCurrentUrl());
+       }else{
+           System.out.println("actual url does not match "+driver.getCurrentUrl());
+       }
+
+    }
+
+    public static WebElement getEmail()
+    {
+        WebElement ele= driver.findElement(eMail);
+        if(ele.isDisplayed()){
+            System.out.println("element present");
+        }else {
+            System.out.println( "element not found");
+        }
+       return ele;
+    }
+
+    public static WebElement getPassword()
+    {
+        return driver.findElement(password);
+    }
+
+    public static WebElement getLoginButton()
+    {
+        return driver.findElement(loginButton);
+    }
+
+}
+
